@@ -1,0 +1,14 @@
+body,ul{margin:0;padding:0;list-style: none;}
+a{text-decoration:none;color:black}
+.main_index{position:relative;margin-left:200px;padding-left:40px; padding-top:20px}
+#wrap_header{position: fixed;text-align: center;width: 200px;border-right:1px solid gray;top:0;bottom:0;left:0}
+.logo{border:1px solid gray;display: table;margin:30px auto}
+.search{margin:0 0 50px 0}
+.user{height:150px;}
+.user>ul{border-top:1px solid gray;border-bottom: 1px solid gray;font-size: 14px;float:left;width:100%;}
+.user>ul>li{float:left;width: 49.5%}
+.user>ul>li:nth-child(2){border-left: 1px solid gray}
+.user>ul>li>a{display: block;padding: 10px}
+.category{display: block; position: relative}
+.category>ul>li>a{display: block;padding:20px}
+.top_name{font-size:20px}
