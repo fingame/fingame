@@ -51,5 +51,40 @@ public class DB {
 				try {conn.close();}catch(SQLException sqle) {}
 		}
 	}
-
+	
+	public int userCheck(String id, String pw) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String dbpw = "";
+		int x = 1;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select pw from signup where id=?");
+			pstmt.setString(1,id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dbpw = rs.getString("pw");
+				if(dbpw.equals(pw)) {
+					x = 1; //성공
+				}
+				else {
+					x = 0; //실패
+				}
+			}
+			else {
+				x = 0; //실패
+			}	
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null)
+				try {pstmt.close();}catch(SQLException sqle) {}
+			if(conn != null)
+				try {conn.close();}catch(SQLException sqle) {}
+		}
+		return x;
+	}
 }
